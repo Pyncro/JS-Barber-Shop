@@ -11,10 +11,7 @@ function validate_css_path($path): bool
 {
     $allowed_paths = [
         "/css/body.css",
-        "/css/entete.css",
-        "/css/employe.css",
-        "/css/tableaudeBord_admin.css",
-        "/css/nouveauBarber.css",
+        "/css/header.css",
         # ...
     ];
 

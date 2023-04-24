@@ -5,15 +5,15 @@ include_once 'function/validation.php';
 include_once 'function/validation_css.php';
 
 // Domain name
-$domain = "http://localhost";
+const DOMAIN = "http://localhost:8080";
 
 // To get the directory of current included file :
-$racine = dirname(__FILE__);
+define('RACINE', dirname(__FILE__));
 
 // Returns the URI of the current page
-$req_uri = $_SERVER['REQUEST_URI'];
+define('URL', $_SERVER['REQUEST_URI']);
 
-$safe_uri = validateInput($req_uri);
+$safe_uri = validateInput(URL);
 
 // Send a cookie if there is none
 if (!isset($_SESSION)) {
@@ -25,31 +25,31 @@ if (!isset($_SESSION)) {
  * get the user requested path with '$_SERVER' super global variable
  * require the corresponding page
  * */
-switch ($req_uri)
+switch (URL)
 {
     case '/':
     case '':
-    case '/accueil.php':
-    case '/accueil.php?':
-        include_once $racine.DIRECTORY_SEPARATOR."/controllers/accueil.php";
+    case '/accueil':
+    case '/accueil?':
+        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/accueil.php";
         break;
 
 
     case str_starts_with($safe_uri, "/javascript/");
-        include_once $racine.DIRECTORY_SEPARATOR."/controllers/javascript.php";
+        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/javascript.php";
         break;
 
 
-    case str_starts_with($req_uri, "/img/"):
+    case str_starts_with(URL, "/img/"):
         #!!! Data breach
-        include_once $racine.DIRECTORY_SEPARATOR."/controllers/img.php";
+        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/img.php";
         #!!!
         break;
 
 
-    case str_starts_with($req_uri, "/css/");
-        if (validate_css_path($req_uri)) {
-            include_once $racine .DIRECTORY_SEPARATOR. "/controllers/css.php";
+    case str_starts_with(URL, "/css/");
+        if (validate_css_path(URL)) {
+            include_once RACINE.DIRECTORY_SEPARATOR."/controllers/css.php";
         } else {
             echo "Error";
         }
@@ -58,6 +58,6 @@ switch ($req_uri)
 
     default:
         http_response_code(404);
-        include_once $racine .DIRECTORY_SEPARATOR. "/controllers/404_Page.php";
+        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/404_Page.php";
         break;
 }

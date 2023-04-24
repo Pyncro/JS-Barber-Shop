@@ -20,16 +20,24 @@
         <img class="logo" src="../img/logo.jpg" alt="logo">
         <nav>
             <ul class="nav_links">
-            <li><a href="accueil.php">Accueil</a></li>
+            <li><a href="accueil">Accueil</a></li>
             <li><a href="#">Galerie</a></li>
             <li><a class="replace" href="#">Boutique</a></li>
             <li><a class="change" href="#">Prendre rendez vous</a></li>
             <li><a href="#">Contact</a></li>
         </nav>
         <div class="main">
-            <a class="btn" href="employe.php"><button>Se connecter</button></a>
+            <a class="btn" href="#"><button>Se connecter</button></a>
         </div>
     </header>
 <!--End header-->
-<?php echo '<img src="../img/menu.png" alt="menu" class="menu-bar">'; ?>
-<script src="/Site/js/menu.js"></script>
+<?='<img src="../img/menu.png" alt="menu" class="menu-bar">';?>
+<!--JS script-->
+<script>
+    const menu = document.querySelector('.menu-bar')
+    const navLinks = document.querySelector('.head_nav')
+
+    menu.addEventListener('click',()=>{
+        navLinks.classList.toggle('mobile-menu')
+    })
+</script>
