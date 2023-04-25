@@ -35,6 +35,18 @@ switch (URL)
         break;
 
 
+    case '/employes':
+    case '/employes?':
+        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/employes.php";
+        break;
+
+
+    case '/espaceAdmin':
+    case '/espaceAdmin?':
+        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/espaceAdmin.php";
+        break;
+
+
     case str_starts_with($safe_uri, "/javascript/");
         include_once RACINE.DIRECTORY_SEPARATOR."/controllers/javascript.php";
         break;

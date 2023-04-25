@@ -12,6 +12,7 @@ function validate_css_path($path): bool
     $allowed_paths = [
         "/css/body.css",
         "/css/header.css",
+        "/css/espaceAdmin.css",
         # ...
     ];
 
