@@ -31,19 +31,25 @@ switch (URL)
     case '':
     case '/accueil':
     case '/accueil?':
-        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/accueil.php";
+        include_once RACINE . DIRECTORY_SEPARATOR . "/controllers/home.php";
         break;
 
 
     case '/employes':
     case '/employes?':
-        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/employes.php";
+        include_once RACINE . DIRECTORY_SEPARATOR . "/controllers/employees.php";
         break;
 
 
     case '/espaceAdmin':
     case '/espaceAdmin?':
         include_once RACINE.DIRECTORY_SEPARATOR."/controllers/espaceAdmin.php";
+        break;
+
+
+    case '/nouveauBarber':
+    case '/nouveauBarber?':
+        include_once RACINE.DIRECTORY_SEPARATOR."/controllers/nouveauBarber.php";
         break;
 
 

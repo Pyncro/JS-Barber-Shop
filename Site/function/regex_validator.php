@@ -76,9 +76,9 @@ function password_validator($password)
 }
 
 
-function reapetPassword($repeatPassword)
+function confirmation($password, $repeatPassword): bool
 {
-    if (password_validator($repeatPassword) != password_validator($repeatPassword))
+    if ($password !== $repeatPassword)
     {
         return false;
     }
